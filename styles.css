@@ -1,0 +1,258 @@
+/* Grundläggande reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Ljust tema */
+body.light-theme {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Mörkt tema */
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-theme .task-item {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-theme .task-item.completed {
+  background-color: #555;
+  color: #ccc;
+}
+
+body.dark-theme .task-actions button {
+  color: #fff; /* Gör ikonerna vita i mörkt läge för bättre kontrast */
+}
+
+body.dark-theme .task-actions button:hover {
+  color: #f0a500; /* Lägg till en tydlig hover-effekt, exempelvis orange */
+}
+
+body.dark-theme input,
+body.dark-theme select {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Tema-knapp */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Sökfält */
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#search-button {
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  border: none;
+}
+
+/* Filtrering och Sortering */
+.filter-sort-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-sort-container select {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Formulär för ny uppgift */
+#task-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#task-form input,
+#task-form select {
+  flex: 1 1 200px;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1rem;
+}
+
+#task-form button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #28a745;
+  color: #fff;
+  border: none;
+}
+
+/* Lista över uppgifter */
+#task-list {
+  list-style-type: none;
+}
+
+.task-item {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+
+/* Prioritetsindikatorer */
+.task-item.low-priority {
+  border-left: 5px solid green;
+}
+
+.task-item.medium-priority {
+  border-left: 5px solid orange;
+}
+
+.task-item.high-priority {
+  border-left: 5px solid red;
+}
+
+.task-item.completed {
+  background: #d4edda;
+  text-decoration: line-through;
+}
+
+/* Kategorifärger */
+.task-item.category-hemmet {
+  background-color: #e6f7ff;
+}
+
+.task-item.category-arbete {
+  background-color: #fff3e6;
+}
+
+.task-item.category-hälsa {
+  background-color: #e6ffe6;
+}
+
+.task-item.category-utbildning {
+  background-color: #f0e6ff;
+}
+
+/* När ett objekt dras */
+.task-item.dragging {
+  opacity: 0.5;
+  border: 2px dashed #007bff;
+  background-color: #f0f0f0;
+}
+
+.task-details {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Animationer */
+.task-item-add {
+  animation: fadeIn 0.5s ease;
+}
+
+.task-item-remove {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Responsiv design */
+@media (max-width: 600px) {
+  #task-form {
+    flex-direction: column;
+  }
+
+  .filter-sort-container {
+    flex-direction: column;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    margin-top: 10px;
+  }
+}

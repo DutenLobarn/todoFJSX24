@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Avancerad To-Do Applikation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Länk till CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Ikoner från Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Växla Tema -->
+    <button id="theme-toggle" aria-label="Växla tema">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+      <h1>Avancerad To-Do Applikation</h1>
+
+      <!-- Sökfält -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Sök uppgifter..."
+          aria-label="Sök uppgifter"
+        />
+        <button id="search-button" aria-label="Sök">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <!-- Filtrering och Sortering -->
+      <div class="filter-sort-container">
+        <select id="filter-status" aria-label="Filtrera efter status">
+          <option value="all">Alla</option>
+          <option value="completed">Klart</option>
+          <option value="pending">Ej Klart</option>
+        </select>
+
+        <select id="sort-tasks" aria-label="Sortera uppgifter">
+          <option value="date">Datum</option>
+          <option value="priority">Prioritet</option>
+        </select>
+      </div>
+
+      <!-- Inmatningsfält för ny uppgift -->
+      <form id="task-form" aria-label="Lägg till ny uppgift">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Lägg till ny uppgift..."
+          required
+          aria-label="Uppgift"
+        />
+        <select id="category-input" aria-label="Kategori">
+          <option value="hemmet">Hemmet</option>
+          <option value="arbete">Arbete</option>
+          <option value="hälsa">Hälsa</option>
+          <option value="utbildning">Utbildning</option>
+        </select>
+        <input
+          type="text"
+          id="tags-input"
+          placeholder="Taggar (kommaseparerade)"
+          aria-label="Taggar"
+        />
+        <select id="priority-select" aria-label="Prioritet">
+          <option value="low">Låg Prioritet</option>
+          <option value="medium">Medel Prioritet</option>
+          <option value="high">Hög Prioritet</option>
+        </select>
+        <button type="submit" aria-label="Lägg till uppgift">
+          <i class="fas fa-plus"></i>
+        </button>
+      </form>
+
+      <!-- Lista över uppgifter -->
+      <ul id="task-list" aria-label="Lista över uppgifter">
+        <!-- Dynamiskt genererade uppgifter kommer här -->
+      </ul>
+    </div>
+
+    <!-- Länk till JavaScript -->
+    <script src="app.js"></script>
+  </body>
+</html>
